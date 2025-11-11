@@ -1,0 +1,46 @@
+zrob mi prosta aplikacje Next JS + .NET 9 + postgres ktora spelnia te wymagania funkcjonalne:
+
+zrob mi nim dwa foldery client z aplikacja Next js i serwer z aplikacja .NET 9 oraz plik docer-compose:
+
+ma byc bardzo prosta, ale ladna, nowoczesna, minimalistyczna
+wsyzstko ma dzialac od razu jak uruchomie docker-compose
+cala logika Auth i dwu-skladnikowe uwierzytelnianie zrob ja sam- prost- ale zamist jakich sms czy cos takiego to niech kody beda wyswietlane w konsoli jako console logi czyli mechanizm rejestracja, pierwszego logowania z kodem z konsoli i potem normalne logowanie- caly kod ma byc prosty, a testy tez maja byc proste
+prosty frontend, potem proste auth i potem prosta aplikacja do nauki, zrob mi np. po 10 fiszek z 5 dzialow jak SQL, .NET, JAVA, JAVASCRIPT, PYTHON i tyle i proste sledzenie historii wynikow- nic trudnego- tylko dostarcz dzialajaca aplikacja
+
+
+1.1 Wymagania funkcjonalne
+Moduł Landing Page
+● LPG-01: Prezentacja wartości aplikacji (hero section, features, CTA)
+● LPG-02: Przyciski nawigacji do rejestracji/logowania
+● LPG-03: Responsywny design (mobile-first)
+● LPG-04: Animacje i interaktywność zwiększające engagement
+Moduł Uwierzytelniania
+● AUTH-01: Rejestracja użytkownika (email, hasło, potwierdzenie hasła)
+● AUTH-02: Walidacja danych (siła hasła, format email)
+● AUTH-03: Logowanie z credentials (email + hasło)
+● AUTH-04: Dwuskładnikowe uwierzytelnianie (2FA)
+● AUTH-05: Zarządzanie sesją (JWT tokens)
+● AUTH-06: Wylogowanie
+Moduł Fiszek
+● FLASH-01: Przeglądanie fiszek z pytaniami full-stack
+● FLASH-02: Mechanizm przewracania fiszki (pytanie → odpowiedź)
+● FLASH-03: Nawigacja między fiszkami
+● FLASH-04: Kategoryzacja według technologii (Next.js, .NET, TypeScript, C#, etc.)
+Moduł Testów
+● TEST-01: Wybór kategorii/poziomu trudności testu
+● TEST-02: Pytania single/multiple choice
+● TEST-03: Wyświetlanie wyniku po zakończeniu
+● TEST-04: Przegląd błędnych odpowiedzi
+1.2 User Stories
+US-01: Jako nowy użytkownik chcę zarejestrować konto, aby uzyskać dostęp do materiałów
+edukacyjnych.
+US-02: Jako użytkownik chcę skonfigurować 2FA, aby zwiększyć bezpieczeństwo mojego
+konta.
+US-03: Jako użytkownik chcę przeglądać fiszki z różnych kategorii, aby systematycznie
+uczyć się technologii full-stack.
+US-04: Jako użytkownik chcę rozwiązywać testy, aby sprawdzić swoją wiedzę w praktyce.
+1.3 Przepływ użytkownika (User Flow)
+Landing Page → Rejestracja → Email verification (opcjonalnie) →
+→ Logowanie → Setup 2FA → Weryfikacja 2FA →
+→ Dashboard → [Fiszki | Testy | Profil]
+

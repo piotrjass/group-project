@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: flashcards-db
+    environment:
+      POSTGRES_USER: flashcards_user
+      POSTGRES_PASSWORD: flashcards_pass
+      POSTGRES_DB: flashcards_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flashcards_user -d flashcards_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: flashcards-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=flashcards_db;Username=flashcards_user;Password=flashcards_pass
+      - JwtSettings__Secret=your-super-secret-jwt-key-change-this-in-production-min-32-chars
+      - JwtSettings__Issuer=FlashcardsApp
+      - JwtSettings__Audience=FlashcardsApp
+      - JwtSettings__ExpiryMinutes=60
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: flashcards-client
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+volumes:
+  postgres_data:
