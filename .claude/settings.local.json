@@ -19,7 +19,11 @@
       "Bash(timeout 15 bash:*)",
       "Bash(curl:*)",
       "Bash(docker-compose build:*)",
-      "Bash(timeout 12 bash:*)"
+      "Bash(timeout 12 bash:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)",
+      "Bash(dotnet test:*)",
+      "Bash(dotnet restore:*)"
     ],
     "deny": [],
     "ask": []
